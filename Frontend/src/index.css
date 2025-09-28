@@ -10,3 +10,19 @@
   font-weight: 400;
   font-style: normal;
 }
+/* styles/globals.css */
+.apple-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.apple-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(31, 38, 135, 0.2);
+}
+
+/* ... rest of the CSS styles from the original component */

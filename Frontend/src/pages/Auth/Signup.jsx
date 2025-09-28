@@ -176,7 +176,7 @@ const RegisterPage = () => {
       
       // Show success notification and redirect to /interview
       setTimeout(() => {
-        navigate('/interview');
+        navigate('/interviewer');
       }, 2000);
 
     } catch (error) {

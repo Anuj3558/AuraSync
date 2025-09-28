@@ -3,6 +3,9 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./connection.js";
 import authRouter from "./router/AuthRouter.js";
+import Postitionrouter from "./router/positionRoutes.js";
+import CandidateRouter from "./router/Candidate.js";
+import InterviewRouter from "./router/interviewRouter.js";
 
 // Load environment variables
 dotenv.config();
@@ -42,7 +45,10 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/recruiters", authRouter);
-
+app.use("/api/positions",Postitionrouter);
+app.use("/api",CandidateRouter);
+app.use("/api", InterviewRouter);
+// Added route for interviews
 // Example API route
 app.get("/api/status", (req, res) => {
   res.json({ status: "Server is running", time: new Date().toISOString() });
