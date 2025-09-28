@@ -212,7 +212,7 @@ const IntervieweeUI = () => {
   // Function to fetch user data from backend
   const fetchUserData = async (userId) => {
     try {
-      const baseURL = import.meta.env.VITE_APP_BACKEND_URL || 'https://aurasync.onrender.com';
+      const baseURL = import.meta.env.VITE_APP_BACKEND_URL || 'https://aurasync.onrender.com/api';
       const token = localStorage.getItem('token') || Cookies.get('token');
       
       const response = await fetch(`${baseURL}/users/${userId}`, {

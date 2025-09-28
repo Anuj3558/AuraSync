@@ -24,7 +24,7 @@ import { DeleteIcon, EditIcon } from 'lucide-react';
 
 // API Service
 const createAPIService = () => {
-  const baseURL = import.meta.VITE_APP_BACKEND_URL || 'https://aurasync.onrender.com';
+  const baseURL = import.meta.VITE_APP_BACKEND_URL || 'https://aurasync.onrender.com/api';
   
   const api = axios.create({
     baseURL,
