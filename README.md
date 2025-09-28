@@ -37,7 +37,7 @@ Recruiters face challenges with *manual interviews*:
 
 ## 🏗 System Workflow
 
-![System Workflow Diagram](https://via.placeholder.com/800x400?text=System+Workflow+Diagram)
+![System Workflow Diagram]([https://via.placeholder.com/800x400?text=System+Workflow+Diagram](https://github.com/Anuj3558/AuraSync/blob/main/Candidate%20Interview%20and%20Recruiter%20Dashboard%20System%20-%20visual%20selection%20(1).png))
 
 *Flow*:  
 Resume Upload → Missing Info → Timed Q&A → AI Scoring → AI Summary → Dashboard  
