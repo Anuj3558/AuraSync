@@ -97,10 +97,12 @@ export const validateTokenRoute = async (req, res) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const recruiter = await Recruiter.findById(decoded.id).select('-password');
     
+
     if (!recruiter) {
       return res.status(401).json({ message: "Invalid token" });
     }
 
+    
     res.status(200).json({
       message: "Token is valid",
       recruiter: {
