@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Brain, Zap, BarChart3, CheckCircle, Mail, Phone, Twitter, Github, Linkedin, Star, ArrowRight, Play, Users, Clock, Target } from 'lucide-react';
+import { Menu, X, Brain, Zap, BarChart3, CheckCircle, Mail, Phone, Twitter, Github, Linkedin, Star, ArrowRight, Play, Users, Clock, Target, LogIn } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import { useNavigate } from 'react-router-dom';
+
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -10,6 +12,8 @@ const Home = () => {
     company: '',
     message: ''
   });
+
+  const navigate = useNavigate();
 
   const testimonials = [
     {
@@ -54,6 +58,10 @@ const Home = () => {
     console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', company: '', message: '' });
     alert('Thank you for your message! We\'ll get back to you soon.');
+  };
+
+  const handleLogin = () => {
+    navigate('/login');
   };
 
   const features = [
@@ -101,7 +109,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-       <Helmet>
+      <Helmet>
         <title>AuraSync | AI-Powered Hiring Platform</title>
         <meta name="description" content="AuraSync is an AI-powered hiring platform that synchronizes candidate potential with interviewer wisdom. Faster hiring, real-time insights, and intelligent assessments." />
         <meta name="keywords" content="
@@ -117,6 +125,7 @@ const Home = () => {
           interview AI assistant, hiring analytics dashboard, next-gen recruitment platform, intelligent hiring system, interview automation tools
         " />
       </Helmet>
+      
       {/* Navigation - Apple Style */}
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200/50 z-50">
         <div className="max-w-6xl mx-auto px-6">
@@ -128,22 +137,35 @@ const Home = () => {
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="flex items-center space-x-8">
-                {['Home', 'About', 'Services', 'Contact'].map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
+            <div className="hidden md:flex items-center space-x-8">
+              {['Home', 'About', 'Services', 'Contact'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                >
+                  {item}
+                </a>
+              ))}
+              
+              {/* Login Button */}
+              <button
+                onClick={handleLogin}
+                className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 transition-colors duration-200"
+              >
+                <LogIn className="w-4 h-4" />
+                Login
+              </button>
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center gap-4">
+              <button
+                onClick={handleLogin}
+                className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 transition-colors duration-200"
+              >
+                <LogIn className="w-4 h-4" />
+              </button>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-600 hover:text-gray-900 p-1"
@@ -168,12 +190,23 @@ const Home = () => {
                   {item}
                 </a>
               ))}
+              {/* Mobile Login Button */}
+              <button
+                onClick={() => {
+                  handleLogin();
+                  setIsMenuOpen(false);
+                }}
+                className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 transition-colors duration-200 w-full text-left"
+              >
+                <LogIn className="w-4 h-4" />
+                Login
+              </button>
             </div>
           </div>
         )}
       </nav>
 
-      {/* Hero Section - Apple Style */}
+      {/* Rest of the component remains the same */}
       <section id="home" className="pt-24 pb-20 text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900 mb-6 leading-tight">
@@ -190,10 +223,11 @@ const Home = () => {
               <Play className="w-4 h-4" />
               Experience the Demo
             </button>
+            <a href="https://github.com/Anuj3558/AuraSync" target="_blank" rel="noopener noreferrer">
             <button className="border border-gray-300 hover:border-gray-400 text-gray-900 px-8 py-3 rounded-full text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2">
               <Github className="w-4 h-4" />
               View GitHub Repo
-            </button>
+            </button></a>
           </div>
 
           {/* Interactive Demo Preview - Apple Style */}
