@@ -19,8 +19,6 @@ const transporter = nodemailer.createTransport({
     pass: "elzk fldy nafq dtlk" // This should be an App Password
   },
   // Add these for better Gmail compatibility
-  secure: false,
-  port: 587,
   
 });
 
