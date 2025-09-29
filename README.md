@@ -97,34 +97,10 @@ Resume Upload → Missing Info → Timed Q&A → AI Scoring → AI Summary → D
 - Profile view → detailed Q&A + AI evaluation  
 - Search & sort by score, date, name  
 
-### 6️⃣ Data Persistence
-- Uses *redux-persist* → IndexedDB  
+### 6️⃣ Data Persistence 
 - Restores session on refresh/reopen  
 - Displays “Welcome Back” modal  
 
 ---
 
-## 📂 Data Models
 
-```json
-Candidate {
-  id: string,
-  name: string,
-  email: string,
-  phone: string,
-  resumeUrl: string,
-  questions: Question[],
-  totalScore: number,
-  summary: string,
-  createdAt: Date
-}
-
-Question {
-  id: string,
-  difficulty: "easy" | "medium" | "hard",
-  text: string,
-  answer: string,
-  score: number,
-  timer: number,
-  completed: boolean
-}
